@@ -85,7 +85,13 @@ df = pd.DataFrame(
 
 st.map(df)
 
-# 5 INPUT FORM
+# 5 Pie Chart atau Histogram
+st.subheader("Histogram Usia")
+hist_data = np.random.randint(18, 60, size=100)
+st.bar_chart(pd.DataFrame(hist_data, columns=["Usia"]).value_counts())
+
+
+# 6 INPUT FORM
 
 st.subheader("Lembar kerja Belajar Form input")
 with st.form("ay_form"):
@@ -100,6 +106,10 @@ with st.form("ay_form"):
     hobi = st.multiselect("Hobi", ["Membaca", "Menulis", "Menggambar", "Mengaji"])
     submitted = st.form_submit_button("submit")
     if submitted:
+        if not name or not alamat:
+        st.warning("Mohon isi semua data dengan lengkap!")
+    else:
+        st.success("Data berhasil dikirim!")
         st.write(f"Name: {name}")
         st.write(f"Alamat: {alamat}")
         st.write(f"Usia: {usia}")
@@ -108,7 +118,7 @@ with st.form("ay_form"):
 if submitted:
     st.success("Fora sub,itted!")
 
-# 6. Upload Media Di Streamlit
+# 7. Upload Media Di Streamlit
 st.subheader("Lembar Kerja Belajar Upload Media YT")
 st.video("https://youtu.be/H73Q1W_NSho?si=D9SEr3TEv7GzxnC5")
 # st.vidio('.vidio.mp4')
@@ -116,16 +126,21 @@ st.video("https://youtu.be/H73Q1W_NSho?si=D9SEr3TEv7GzxnC5")
 st.subheader("Lembar Kerja Belajar Upload Media mp3")
 # st.audio('.audio.mp3')
 
-#7. Membuat dua kolom
+# Foto Kamera
+if foto_kamera:
+    st.image(foto_kamera, caption="Foto yang diambil", use_column_width=True)
+
+
+# 8. Membuat dua kolom
 col1, col2 = st.columns(2)
 
-# Menampilkan konten di kolom pertama
+# 9 Menampilkan konten di kolom pertama
 with col1:
     st.header("Kolom 1")
     st.write("Ini adalah konten di kolom pertama.")
     st.button("Tombol Kolom 1")
 
-# Menampilkan konten di kolom kedua
+# 10 Menampilkan konten di kolom kedua
 with col2:
     st.header("Kolom 2")
     st.write("Ini adalah konten di kolom kedua.")
@@ -138,11 +153,11 @@ st.sidebar.write("Lembar Kerja Belajar Sidebar Write")
 
 import streamlit as st
 
-# Menambahkan elemen navigasi di Sidebar
+# 11 Menambahkan elemen navigasi di Sidebar
 st.sidebar.header("Navigasi")
 selection = st.sidebar.radio("Pilih Halaman", ["Beranda", "Tentang", "Kontak"])
 
-# Konten berdasarkan pilihan
+# 12 Konten berdasarkan pilihan
 if selection == "Beranda":
     st.title("Beranda")
     st.write("Ini adalah halaman beranda.")
@@ -153,11 +168,11 @@ else:
     st.title("Kontak")
     st.write("Ini adalah halaman kontak.")
 
-# Menambahkan elemen navigasi dengan dropdown di Sidebar
+# 13 Menambahkan elemen navigasi dengan dropdown di Sidebar
 st.sidebar.header("Navigasi")
 selection = st.sidebar.selectbox("Pilih Halaman", ["Beranda", "Tentang", "Galeri", "Kontak"])
 
-# Konten berdasarkan pilihan
+# 14 Konten berdasarkan pilihan
 if selection == "Beranda":
     st.title("Beranda")
     st.write("Ini adalah halaman beranda.")
@@ -171,7 +186,7 @@ else:
     st.title("Kontak")
     st.write("Ini adalah halaman kontak.")
 
-# Menambahkan tombol untuk navigasi di Sidebar
+# 15 Menambahkan tombol untuk navigasi di Sidebar
 st.sidebar.header("Navigasi")
 if st.sidebar.button("Beranda"):
     st.title("Beranda")
@@ -183,13 +198,13 @@ elif st.sidebar.button("Kontak"):
     st.title("Kontak")
     st.write("Ini adalah halaman kontak.")
 
-# Menambahkan tautan navigasi di Sidebar
+# 16 Menambahkan tautan navigasi di Sidebar
 st.sidebar.header("Navigasi")
 st.sidebar.markdown("[Beranda](#beranda)")
 st.sidebar.markdown("[Tentang](#tentang)")
 st.sidebar.markdown("[Kontak](#kontak)")
 
-# Konten halaman berdasarkan tautan
+# 17 Konten halaman berdasarkan tautan
 st.title("Beranda")
 st.write("Ini adalah halaman beranda.")
 
@@ -198,3 +213,13 @@ st.write("Ini adalah halaman tentang.")
 
 st.title("Kontak")
 st.write("Ini adalah halaman kontak.")
+
+# Sidebar navigasi
+page = st.sidebar.selectbox("Pilih halaman", ["Beranda", "Tentang", "Kontak"])
+
+if page == "Beranda":
+    halaman_beranda()
+elif page == "Tentang":
+    halaman_tentang()
+else:
+    halaman_kontak()
