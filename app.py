@@ -106,10 +106,6 @@ with st.form("ay_form"):
     hobi = st.multiselect("Hobi", ["Membaca", "Menulis", "Menggambar", "Mengaji"])
     submitted = st.form_submit_button("submit")
     if submitted:
-        if not name or not alamat:
-        st.warning("Mohon isi semua data dengan lengkap!")
-    else:
-        st.success("Data berhasil dikirim!")
         st.write(f"Name: {name}")
         st.write(f"Alamat: {alamat}")
         st.write(f"Usia: {usia}")
@@ -125,11 +121,6 @@ st.video("https://youtu.be/H73Q1W_NSho?si=D9SEr3TEv7GzxnC5")
 
 st.subheader("Lembar Kerja Belajar Upload Media mp3")
 # st.audio('.audio.mp3')
-
-# Foto Kamera
-if foto_kamera:
-    st.image(foto_kamera, caption="Foto yang diambil", use_column_width=True)
-
 
 # 8. Membuat dua kolom
 col1, col2 = st.columns(2)
@@ -213,13 +204,3 @@ st.write("Ini adalah halaman tentang.")
 
 st.title("Kontak")
 st.write("Ini adalah halaman kontak.")
-
-# Sidebar navigasi
-page = st.sidebar.selectbox("Pilih halaman", ["Beranda", "Tentang", "Kontak"])
-
-if page == "Beranda":
-    halaman_beranda()
-elif page == "Tentang":
-    halaman_tentang()
-else:
-    halaman_kontak()
