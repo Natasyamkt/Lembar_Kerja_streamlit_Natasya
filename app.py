@@ -91,7 +91,7 @@ st.map(df)
 st.subheader("Lembar kerja Belajar Form input")
 with st.form("ay_form"):
     name = st.text_input("Name", placeholder="Enter your name")
-    usia = st.text_area("Alamat", placeholder="Enter your address")
+    alamat = st.text_area("Alamat", placeholder="Enter your address")
     usia = st.slider("Usia", 4, 120, 35)
     tanggal_lahir = st.date_input("Tanggal Lahir")
     warna_favorit = st.color_picker("warna favorit")
@@ -104,7 +104,7 @@ with st.form("ay_form"):
         st.write(f"Name: {name}")
         st.write(f"Alamat: {alamat}")
         st.write(f"Usia: {usia}")
-        st.writer(f"Tanggal lahir: {tanggal_lahir}")
+        st.write(f"Tanggal lahir: {tanggal_lahir}")
 
 if submitted:
     st.success("Fora sub,itted!")
