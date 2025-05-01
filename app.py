@@ -14,7 +14,8 @@ st.markdown("**Markdown** juga bisa digunakan di Streamlit.")
 st.caption("Ini adalah caption kecil di bawah elemen lain.")
 st.code("print('Hello, Streamlit!')", language="python") 
 st.text("Aplikasi Streamlit App - ini text")
-st.latex(r'x^2 + y^2 = z^2')
+st.dialog("Konfirmasi Hapus Data")
+st.latex(r'5^2 + 22^2 = 20^2')
 st.divider()
 st.markdown("Aplikasi Streamlit App - ini markdown")
 
@@ -59,11 +60,11 @@ st.subheader("Lembar kerja Belajar Simple Data 2")
 col1, col2, col3 = st.columns(3)
 
 with col1:
-    st.metric(label="Omset", value="Rp 200 Juta", delta="+5%")
+    st.metric(label="Omset", value="Rp 500 Juta", delta="+15%")
 with col2:
     st.metric(label="User Aktif", value="1.250", delta="+2%")
 with col3:
-    st.metric(label="Refund", value="15", delta=" 4%",)
+    st.metric(label="Refund", value="25", delta=" 5%",)
 
 # 4 Charts
 ## 4.1 LINE CHART
@@ -85,13 +86,7 @@ df = pd.DataFrame(
 
 st.map(df)
 
-# 5 Pie Chart atau Histogram
-st.subheader("Histogram Usia")
-hist_data = np.random.randint(18, 60, size=100)
-st.bar_chart(pd.DataFrame(hist_data, columns=["Usia"]).value_counts())
-
-
-# 6 INPUT FORM
+# 5 INPUT FORM
 
 st.subheader("Lembar kerja Belajar Form input")
 with st.form("ay_form"):
@@ -114,7 +109,7 @@ with st.form("ay_form"):
 if submitted:
     st.success("Fora sub,itted!")
 
-# 7. Upload Media Di Streamlit
+# 6. Upload Media Di Streamlit
 st.subheader("Lembar Kerja Belajar Upload Media YT")
 st.video("https://youtu.be/H73Q1W_NSho?si=D9SEr3TEv7GzxnC5")
 # st.vidio('.vidio.mp4')
@@ -122,16 +117,16 @@ st.video("https://youtu.be/H73Q1W_NSho?si=D9SEr3TEv7GzxnC5")
 st.subheader("Lembar Kerja Belajar Upload Media mp3")
 # st.audio('.audio.mp3')
 
-# 8. Membuat dua kolom
+#7. Membuat dua kolom
 col1, col2 = st.columns(2)
 
-# 9 Menampilkan konten di kolom pertama
+# Menampilkan konten di kolom pertama
 with col1:
     st.header("Kolom 1")
     st.write("Ini adalah konten di kolom pertama.")
     st.button("Tombol Kolom 1")
 
-# 10 Menampilkan konten di kolom kedua
+# Menampilkan konten di kolom kedua
 with col2:
     st.header("Kolom 2")
     st.write("Ini adalah konten di kolom kedua.")
@@ -144,11 +139,11 @@ st.sidebar.write("Lembar Kerja Belajar Sidebar Write")
 
 import streamlit as st
 
-# 11 Menambahkan elemen navigasi di Sidebar
+# Menambahkan elemen navigasi di Sidebar
 st.sidebar.header("Navigasi")
 selection = st.sidebar.radio("Pilih Halaman", ["Beranda", "Tentang", "Kontak"])
 
-# 12 Konten berdasarkan pilihan
+# Konten berdasarkan pilihan
 if selection == "Beranda":
     st.title("Beranda")
     st.write("Ini adalah halaman beranda.")
@@ -159,11 +154,11 @@ else:
     st.title("Kontak")
     st.write("Ini adalah halaman kontak.")
 
-# 13 Menambahkan elemen navigasi dengan dropdown di Sidebar
+# Menambahkan elemen navigasi dengan dropdown di Sidebar
 st.sidebar.header("Navigasi")
 selection = st.sidebar.selectbox("Pilih Halaman", ["Beranda", "Tentang", "Galeri", "Kontak"])
 
-# 14 Konten berdasarkan pilihan
+# Konten berdasarkan pilihan
 if selection == "Beranda":
     st.title("Beranda")
     st.write("Ini adalah halaman beranda.")
@@ -177,7 +172,7 @@ else:
     st.title("Kontak")
     st.write("Ini adalah halaman kontak.")
 
-# 15 Menambahkan tombol untuk navigasi di Sidebar
+# Menambahkan tombol untuk navigasi di Sidebar
 st.sidebar.header("Navigasi")
 if st.sidebar.button("Beranda"):
     st.title("Beranda")
@@ -189,13 +184,13 @@ elif st.sidebar.button("Kontak"):
     st.title("Kontak")
     st.write("Ini adalah halaman kontak.")
 
-# 16 Menambahkan tautan navigasi di Sidebar
+# Menambahkan tautan navigasi di Sidebar
 st.sidebar.header("Navigasi")
 st.sidebar.markdown("[Beranda](#beranda)")
 st.sidebar.markdown("[Tentang](#tentang)")
 st.sidebar.markdown("[Kontak](#kontak)")
 
-# 17 Konten halaman berdasarkan tautan
+# Konten halaman berdasarkan tautan
 st.title("Beranda")
 st.write("Ini adalah halaman beranda.")
 
@@ -203,4 +198,4 @@ st.title("Tentang")
 st.write("Ini adalah halaman tentang.")
 
 st.title("Kontak")
-st.write("Ini adalah halaman kontak.")
+st.write("Ini adalah halaman kontak.") 
